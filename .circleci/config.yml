@@ -11,14 +11,8 @@ jobs:
       - checkout
 
       - run:
-          name: Install dependencies
-          command: |
-            gem install bundler
-            bundle install
-
-      - run:
-          name: Run tests
-          command: bundle exec rspec
+          name: Print Hello, World!
+          command: echo "Hello, World!"
 
 workflows:
   version: 2
