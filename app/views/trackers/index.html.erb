@@ -1,0 +1,35 @@
+<h1>Gym Tracker</h1>
+<p>Welcome to the main page, here you can view your exercises, your current weight for that exercise and your goal.</p>
+
+<div id="trackers-table">
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Exercise</th>
+        <th scope="col">Reps</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Goal</th>
+        <th scope="col">View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trackers.each do |tracker| %>
+        <tr>
+          <td><%= tracker.date %></td>
+          <td><%= tracker.excercise %></td>
+          <td><%= tracker.reps %></td>
+          <td><%= tracker.weight %></td>
+          <td><%= tracker.goal %></td>
+          <td><%= link_to "View", tracker, class:"btn btn-dark" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "Create new tracker", new_tracker_path, class:"btn btn-dark" %>
+
+
+
+

@@ -1,0 +1,31 @@
+<div class="jumbotron" style="background:#aba7ab !important">
+  <h1 class="display-4">Exercise Tracker</h1>
+  <p class="lead">Welcome to the view page, where you can view your progress, edit, or delete an exercise.</p>
+  <hr class="my-4">
+  <div id="<%= dom_id tracker %>">
+    <dl class="row">
+      <dt class="col-sm-3 lead">Date</dt>
+      <dd class="col-sm-9 lead"><strong><%= tracker.date %></strong></dd>
+
+      <dt class="col-sm-3 lead">Exercise</dt>
+      <dd class="col-sm-9 lead"><strong><%= tracker.excercise %></strong></dd>
+
+      <dt class="col-sm-3 lead">Sets/Reps</dt>
+      <dd class="col-sm-9 lead"><strong><%= tracker.reps %></strong></dd>
+
+      <dt class="col-sm-3 lead">Weight</dt>
+      <dd class="col-sm-9 lead"><strong><%= tracker.weight %></strong></dd>
+
+      <dt class="col-sm-3 lead">Goal</dt>
+      <dd class="col-sm-9 lead"><strong><%= tracker.goal %></strong></dd>
+    </dl>
+    
+  </div>
+</div>
+<dd class="col-sm-9">
+<div class="btn-group">
+  <div class="m-1"><%= link_to "Edit", edit_tracker_path(@tracker), class: "btn btn-dark" %></div>
+  <div class="m-1"><%= button_to "Delete", @tracker, method: :delete, class: "btn btn-dark" %></div>
+  <div class="m-1"><%= link_to "Return to main page", trackers_path, class:"btn btn-dark" %></div>
+</div>
+</dd>

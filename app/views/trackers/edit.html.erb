@@ -1,0 +1,10 @@
+<h1>Editing tracker</h1>
+
+<%= render "form", tracker: @tracker %>
+
+<br>
+
+<div>
+  <%= link_to "View", @tracker, class:"btn btn-dark" %>
+  <%= link_to "Return to main page", trackers_path, class:"btn btn-dark" %>
+</div>

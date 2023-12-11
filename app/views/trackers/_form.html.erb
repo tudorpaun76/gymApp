@@ -1,0 +1,44 @@
+<%= form_with(model: tracker, class: "needs-validation", novalidate: true) do |form| %>
+  <% if tracker.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(tracker.errors.count, "error") %> prohibited this tracker from being saved:</h2>
+
+      <ul>
+        <% tracker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-2">
+    <%= form.label :date, class: "form-label", style: "font-size: 18px;"%>
+    <%= form.text_field :date, class: "form-control", required: true, style: "background-color: #d8d6d8;"%>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :excercise, class: "form-label", style: "font-size: 18px;" %>
+    <%= form.text_field :excercise, class: "form-control", required: true, style: "background-color: #d8d6d8;" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :reps, class: "form-label", style: "font-size: 18px;" %>
+    <%= form.text_field :reps, class: "form-control", required: true, style: "background-color: #d8d6d8;" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :weight, class: "form-label", style: "font-size: 18px;" %>
+    <%= form.text_field :weight, class: "form-control", required: true, style: "background-color: #d8d6d8;" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :goal, class: "form-label", style: "font-size: 18px;" %>
+    <%= form.text_field :goal, class: "form-control", required: true, style: "background-color: #d8d6d8;" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.submit "Save", class: "btn btn-dark" %>
+  </div>
+<% end %>
+
+
