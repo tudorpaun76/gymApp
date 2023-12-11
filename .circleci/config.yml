@@ -1,40 +1,27 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: ruby:2.7
+
+    working_directory: ~/gymApp
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: |
+            gem install bundler
+            bundle install
+
+      - run:
+          name: Run tests
+          command: bundle exec rspec
+
 workflows:
   version: 2
   build:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - main
-      - deploy:
-          filters:
-            branches:
-              only:
-                - main
-          requires:
-            -build
-
-orbs: 
-  ruby: circleci/ruby@1.4.0
-
-jobs:
-  build:
-    working_directory: ~/gymApp
-    docker:
-      - image: cimg/ruby:3.1.0
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: hello
-          command: echo hello
-  deploy:
-    docker:
-      - image: cimg/ruby:3.1.0
-    steps:
-      - run:
-          name: world
-          command: echo world
-
-
+      - build
